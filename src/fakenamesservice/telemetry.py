@@ -32,5 +32,4 @@ def init_tracer(args):
         trace.get_tracer_provider().add_span_processor(
             SimpleSpanProcessor(ConsoleSpanExporter()))
     
-    Psycopg2Instrumentor().instrument(enable_commenter=True)
-    SQLAlchemyInstrumentor().instrument(enable_commenter=True, commenter_options={})
+    Psycopg2Instrumentor().instrument(enable_commenter=True, skip_dep_check=True)
