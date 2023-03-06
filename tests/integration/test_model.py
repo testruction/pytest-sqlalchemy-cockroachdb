@@ -25,7 +25,7 @@ def test_model_create(dbsession):
     with closing(open(dataset, encoding='utf-8-sig')) as f:
         reader = csv.DictReader(lower_first(f))
         reader = list(reader)
-        
+
         payload = reader[25]
         payload['number'] = int(payload['number']) + 9000
 
@@ -36,14 +36,13 @@ def test_model_create(dbsession):
                 lastname:  "{payload['surname']}"
                 guid:      "{payload['guid']}"
                 ''')
-        
+
         response = crud.create(dbsession, payload)
-    assert response == True
-        
+    assert response is True
 
 
 def test_model_read_all_limit_default(dbsession):
-    limit = 100 # default
+    limit = 100  # default
     response = crud.read_all(dbsession)
     logger.info(f'Found "{len(response)}/{limit}" records')
     assert len(response) == 100
@@ -86,8 +85,8 @@ def test_model_update(dbsession):
                 ''')
 
         response = crud.update(dbsession, payload)
-    assert response == True
-    
+    assert response is True
+
 
 def test_model_delete(dbsession):
     guid = '9dc0ed75-61fc-47a4-8ad8-57206ff37add'
@@ -100,4 +99,4 @@ def test_model_delete(dbsession):
                 guid:      "{check.guid}"
                 ''')
     response = crud.delete(dbsession, guid=guid)    
-    assert response == True
+    assert response is True
