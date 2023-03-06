@@ -6,7 +6,7 @@ import itertools
 
 from contextlib import closing
 
-from fakenamesservice.repository import crud
+from fakenamesservice.models import crud
 
 logger = logging.getLogger(__name__)
 # for logger_name in [__name__, 'sqlalchemy.engine']:
