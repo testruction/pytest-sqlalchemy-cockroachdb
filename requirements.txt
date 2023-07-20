@@ -1,7 +1,6 @@
 pytest
 pytest-dotenv
 python-dotenv
-pandas
 sqlalchemy
 pydantic
 psycopg2-binary
