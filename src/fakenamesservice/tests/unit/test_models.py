@@ -3,7 +3,6 @@ import logging
 import pkg_resources
 import csv
 import itertools
-import difflib
 
 from contextlib import closing
 
@@ -17,8 +16,9 @@ logger = logging.getLogger(__name__)
 dataset = pkg_resources.resource_filename(__name__,
                                           'fakenames.csv')
 
+
 def lower_first(iterator):
-        return itertools.chain([next(iterator).lower()], iterator)
+    return itertools.chain([next(iterator).lower()], iterator)
 
 
 def test_model_create(dbsession):
@@ -98,5 +98,5 @@ def test_model_delete(dbsession):
                 lastname:  "{check.surname}"
                 guid:      "{check.guid}"
                 ''')
-    response = crud.delete(dbsession, guid=guid)    
+    response = crud.delete(dbsession, guid=guid)
     assert response is True
