@@ -12,8 +12,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--debug',
                     help='Enable debug logging',
                     action='store_true')
-parser.add_argument('--trace-stdout',
-                    help="Show OpenTelemetry output to console",
+parser.add_argument('--disable-tracing',
+                    help="Disable OpenTelemetry tracing",
+                    action="store_true")
+parser.add_argument('--disable-logging',
+                    help="Disable logging",
                     action="store_true")
 parser.add_argument('--host',
                     type=str,
@@ -38,8 +41,11 @@ parser.add_argument('--database',
 args, unknown = parser.parse_known_args()
 
 # Initialize logging and telemetry
-init_logger(args)
-init_tracer(args)
+if args.disable_logging:
+    init_logger(args)
+
+if args.disable_tracing:
+    init_tracer(args)
 
 
 class Config(object):
