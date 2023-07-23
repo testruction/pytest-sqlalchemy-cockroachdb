@@ -28,7 +28,9 @@ python3 -m pip install --upgrade pip --quiet
 pip3 install -r requirements.txt --quiet
 eok 'Pythond virtual environment initialized'
 
-python3 tests/populate.py
+pushd src
+python3 -m fakenamesservice.data_loader --debug
+popd
 eok 'Database populated using "tests/integration/fakenames.csv" dataset'
 
 eok 'Development environment successfully initialized'
