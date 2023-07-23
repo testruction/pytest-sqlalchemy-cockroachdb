@@ -1,5 +1,15 @@
 # Pytest SqlAlchemy CockroachDB
 
+## TL&DR
+
+```bash
+hack/run-lab.sh
+```
+
+![run lab](docs/img/run-lab.png)
+
+---
+
 Create and customize the environment from the provided .
 
 ```bash

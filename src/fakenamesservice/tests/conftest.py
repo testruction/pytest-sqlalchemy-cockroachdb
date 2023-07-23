@@ -5,7 +5,7 @@ import csv
 import itertools
 
 from contextlib import closing
-    
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
