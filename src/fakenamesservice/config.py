@@ -21,23 +21,28 @@ parser.add_argument('--disable-logging',
 parser.add_argument('--host',
                     type=str,
                     help='Hostname, fully qualified name or IP address',
-                    default=os.environ.get('COCKROACH_HOST', default='localhost'))
+                    default=os.environ.get('COCKROACH_HOST',
+                                           default='localhost'))
 parser.add_argument('--port',
                     type=int,
                     help='Listening port',
-                    default=os.environ.get('COCKROACH_PORT', default=26257))
+                    default=os.environ.get('COCKROACH_PORT',
+                                           default=26257))
 parser.add_argument('--username',
                     type=str,
                     help='Database user login name',
-                    default=os.environ.get('COCKROACH_USER', default=None))
+                    default=os.environ.get('COCKROACH_USER',
+                                           default=None))
 parser.add_argument('--password',
                     type=str,
                     help='Database user login password',
-                    default=os.environ.get('COCKROACH_PASSWORD', default=None))
+                    default=os.environ.get('COCKROACH_PASSWORD',
+                                           default=None))
 parser.add_argument('--database',
                     type=str,
                     help='Name of the database',
-                    default=os.environ.get('COCKROACH_DB', default='postgres'))
+                    default=os.environ.get('COCKROACH_DB',
+                                           default='postgres'))
 args, unknown = parser.parse_known_args()
 
 # Initialize logging and telemetry
