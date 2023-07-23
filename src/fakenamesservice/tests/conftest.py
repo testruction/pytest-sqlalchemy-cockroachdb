@@ -33,7 +33,10 @@ def tables(engine):
 
 @pytest.fixture(scope="session")
 def dbsession(engine, tables):
-    """ Returns an sqlalchemy session, and after the test tears down everything properly."""
+    """ Returns an sqlalchemy session,
+    and after the test tears down everything properly.
+    """
+    
     connection = engine.connect()
     # begin the nested transaction
     transaction = connection.begin()
