@@ -55,7 +55,7 @@ jobs:
           tags: >-
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:${{ env.GITHUB_SHA_SHORT }},
             ghcr.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}/loader:${{ env.GITHUB_SHA_SHORT }}
-          file: ./src/loader/Dockerfile
+          file: ./src/Dockerfile
           platforms: linux/amd64
 
       - name: Scan for vulnerabilities
