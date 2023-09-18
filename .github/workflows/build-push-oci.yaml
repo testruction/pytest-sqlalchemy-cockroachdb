@@ -55,7 +55,7 @@ jobs:
           tags: >-
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:${{ env.GITHUB_SHA_SHORT }},
             ghcr.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}/loader:${{ env.GITHUB_SHA_SHORT }}
-          file: ./src/Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64
 
       - name: Scan for vulnerabilities
@@ -78,7 +78,7 @@ jobs:
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:${{ env.VERSION }},
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:${{ env.GITHUB_SHA_SHORT }},
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:latest
-          file: ./src/Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64
       
       - name: Push image to GitHub Container Registry
