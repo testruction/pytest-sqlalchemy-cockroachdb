@@ -72,24 +72,24 @@ jobs:
         id: dockerhub
         uses: docker/build-push-action@v4
         with:
-          context: ./src/loader
+          context: ./
           push: true
           tags: >-
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:${{ env.VERSION }},
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:${{ env.GITHUB_SHA_SHORT }},
             docker.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}-loader:latest
-          file: ./src/loader/Dockerfile
+          file: ./src/Dockerfile
           platforms: linux/amd64
       
       - name: Push image to GitHub Container Registry
         id: ghcr
         uses: docker/build-push-action@v4
         with:
-          context: ./src/loader
+          context: ./
           push: true
           tags: >-
             ghcr.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}/loader:${{ env.VERSION }},
             ghcr.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}/loader:${{ env.GITHUB_SHA_SHORT }},
             ghcr.io/${{ env.ORGANIZATION }}/${{ env.PROJECT_NAME }}/loader:latest
-          file: ./src/loader/Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64
